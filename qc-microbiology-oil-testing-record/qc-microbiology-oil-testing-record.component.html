@@ -1,0 +1,157 @@
+<mat-toolbar>
+    <span>{{qcMicrobiologyOilTestingRecordHeadingLabel}}
+        <button mat-raised-button matTooltip={{toolTipMsg}}>{{helpLabel}}</button>
+    </span>
+  </mat-toolbar>
+ 
+  <mat-card class="my-card">
+    <mat-card-content>
+       <form class="qcMicrobiologyOilTestingRecord-form" [formGroup]="qcMicrobiologyOilTestingRecordForm" 
+       (ngSubmit)="save()" novalidate>
+
+            <!-- Reference No-->
+            <mat-form-field class="full-width" appearance="outline">
+                <mat-label>{{referenceNoLabel}}</mat-label>
+                <input  matInput  value=""   placeholder={{referenceNoLabel}}  name="referenceNo"  
+                required minlength = {{referenceNoMinLength}} maxlength = {{referenceNoMaxLength}} 
+                formControlName="referenceNo" pattern="[0-9]*">
+                    <mat-error >
+                        {{errorMessage("referenceNo","")}}
+                        </mat-error>
+            </mat-form-field>
+
+            <!-- Issue No-->
+            <mat-form-field class="full-width" appearance="outline">
+                <mat-label>{{issueNoLabel}}</mat-label>
+                <input  matInput  value=""   placeholder={{issueNoLabel}}  name="issueNo"  
+                required minlength = {{issueNoMinLength}} maxlength = {{issueNoMaxLength}} 
+                formControlName="issueNo" pattern="[0-9]*">
+                    <mat-error >
+                        {{errorMessage("issueNo","")}}
+                        </mat-error>
+            </mat-form-field>
+
+            <!--Issue Date-->
+            <mat-form-field class="full-width" appearance="outline">
+                <mat-label>{{issueDateLabel}}</mat-label>
+                    <input matInput [matDatepicker]="picker" name="issueDate" placeholder={{issueDateLabel}}  
+                    required minlength = {{issueDateMinLength}} maxlength = {{issueDateMaxLength}} 
+                    formControlName="issueDate" pattern="[0-9]*">
+                        <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+                        <mat-datepicker #picker></mat-datepicker>
+                        <mat-error >
+                            {{errorMessage("issueDate","")}}
+                        </mat-error>
+            </mat-form-field>
+
+            <!--Date-->
+            <mat-form-field class="full-width" appearance="outline">
+                <mat-label>{{dateLabel}}</mat-label>
+                    <input matInput [matDatepicker]="picker" name="date" placeholder={{dateLabel}}  
+                    required minlength = {{dateMinLength}} maxlength = {{dateMaxLength}} 
+                    formControlName="date" pattern="[0-9]*">
+                        <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+                        <mat-datepicker #picker></mat-datepicker>
+                        <mat-error >
+                            {{errorMessage("date","")}}
+                        </mat-error>
+            </mat-form-field>
+
+            <!--Sample-->
+            <mat-form-field class="full-width" appearance="outline">
+                <mat-label>{{sampleLabel}}</mat-label>
+                <input  matInput  value=""   placeholder={{sampleLabel}}  name="sample"  
+                required minlength = {{sampleMinLength}} maxlength = {{sampleMaxLength}}  
+                formControlName="sample" pattern="[0-9]*">
+                    <mat-error>
+                        {{errorMessage("sample","")}}
+                        </mat-error>
+            </mat-form-field>
+            
+            <!-- Total Microbial Count-->
+            <mat-form-field class="full-width" appearance="outline">
+                <mat-label>{{totalMicrobialCountLabel}}</mat-label>
+                <input  matInput  value=""   placeholder={{totalMicrobialCountLabel}}  name="totalMicrobialCount"  
+                required minlength = {{totalMicrobialCountMinLength}} maxlength = {{totalMicrobialCountMaxLength}} 
+                formControlName="totalMicrobialCount" pattern="[0-9]*">
+                    <mat-error >
+                        {{errorMessage("totalMicrobialCount","")}}
+                        </mat-error>
+            </mat-form-field>
+
+            <!--Yeast and Mold Count -->
+            <mat-form-field class="full-width" appearance="outline">
+                <mat-label>{{yeastAndMoldCountLabel}}</mat-label>
+                <input  matInput  value=""   placeholder={{yeastAndMoldCountLabel}}  name="yeastAndMoldCount"  
+                required minlength = {{yeastAndMoldCountMinLength}} maxlength = {{yeastAndMoldCountMaxLength}}  
+                formControlName="yeastAndMoldCount" pattern="[0-9]*">
+                    <mat-error>
+                        {{errorMessage("yeastAndMoldCount","")}}
+                        </mat-error>
+            </mat-form-field>
+
+            <!-- Salmonella -->
+            <mat-form-field class="full-width" appearance="outline">
+                <mat-label>{{salmonellaLabel}}</mat-label>
+                <input  matInput  value=""   placeholder={{salmonellaLabel}}  name="salmonella"  
+                required minlength = {{salmonellaMinLength}} maxlength = {{salmonellaMaxLength}}
+                formControlName="salmonella" pattern="[0-9]*">
+                    <mat-error>
+                        {{errorMessage("salmonella","")}}
+                        </mat-error>
+            </mat-form-field>
+
+            <!-- E.Coli -->
+            <mat-form-field class="full-width" appearance="outline">
+                <mat-label>{{eColiLabel}}</mat-label>
+                <input  matInput  value=""   placeholder={{eColiLabel}}  name="eColi"  
+                required minlength = {{eColiMinLength}} maxlength = {{eColiMaxLength}}
+                formControlName="eColi" pattern="[0-9]*">
+                    <mat-error>
+                        {{errorMessage("eColi","")}}
+                        </mat-error>
+            </mat-form-field>
+
+            <!-- Coliform -->
+            <mat-form-field class="full-width" appearance="outline">
+                <mat-label>{{coliformLabel}}</mat-label>
+                <input  matInput  value=""   placeholder={{coliformLabel}}  name="coliform"  
+                required minlength = {{coliformMinLength}} maxlength = {{coliformMaxLength}}
+                formControlName="coliform" pattern="[0-9]*">
+                    <mat-error>
+                        {{errorMessage("coliform","")}}
+                        </mat-error>
+            </mat-form-field>
+
+            <!-- Remarks -->
+            <mat-form-field class="full-width" appearance="outline">
+                <mat-label>{{remarksLabel}}</mat-label>
+                <input  matInput  value=""   placeholder={{remarksLabel}}  name="firstFloorLabs"  
+                required minlength = {{remarksMinLength}} maxlength = {{remarksMaxLength}}
+                formControlName="remarks" pattern="[0-9]*">
+                    <mat-error>
+                        {{errorMessage("remarks","")}}
+                        </mat-error>
+            </mat-form-field>
+            
+
+            <!--Employee Code-->
+            <mat-form-field class="full-width" appearance="outline">
+                <mat-label>{{employeeCodeLabel}}</mat-label>
+                <input  matInput  value=""   placeholder={{employeeCodeLabel}}  name="empCode"  
+                required minlength = {{employeeCodeMinLength}} maxlength = {{employeeCodeMaxLength}}  
+                formControlName="empCode" pattern="[a-zA-Z0-9 ]*">
+                    <mat-error>
+                        {{errorMessage("empCode","")}}
+                        </mat-error>
+            </mat-form-field>
+
+            <mat-card-actions class="qcMicrobiologyOilTestingRecordRecordTable">
+                <button mat-raised-button (click)="save()" color="primary">
+                    {{submitLabel}}
+                </button>
+              </mat-card-actions>
+        </form>
+    </mat-card-content>
+ </mat-card>
+ 

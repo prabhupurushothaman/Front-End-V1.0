@@ -1,0 +1,99 @@
+<mat-toolbar>
+    <span>{{stirrer1CrndHeadingLabel}}
+        <button mat-raised-button matTooltip={{toolTipMsg}}>{{helpLabel}}</button>
+    </span>
+  </mat-toolbar>
+ 
+  <mat-card class="my-card">
+    <mat-card-content>
+       <form class="stirrer1Crnd-form" [formGroup]="stirrer1CrndForm" (ngSubmit)="save()" novalidate>
+
+            <!--Date-->
+            <mat-form-field class="full-width" appearance="outline">
+                <mat-label>{{dateLabel}}</mat-label>
+                    <input matInput [matDatepicker]="picker" name="date" placeholder={{dateLabel}}  
+                    required minlength = {{dateMinLength}} maxlength = {{dateMaxLength}}  
+                    formControlName="date" pattern="[0-9]*">
+                        <mat-hint>{{dateFormatLabel}}</mat-hint>
+                        <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+                        <mat-datepicker #picker></mat-datepicker>
+                        <mat-error >
+                            {{errorMessage("date","")}}
+                        </mat-error>
+            </mat-form-field>
+
+            <!--Time-->
+            <mat-form-field class="full-width" appearance="outline">
+                <mat-label>{{timeLabel}}</mat-label>
+                <input  matInput  value=""   placeholder={{timeLabel}}  name="time"  
+                required minlength = {{timeMinLength}} maxlength = {{timeMaxLength}}
+                 formControlName="time" pattern="[0-9]*">
+                    <mat-error >
+                        {{errorMessage("time","")}}
+                        </mat-error>
+            </mat-form-field>
+
+            <!--Sample-->
+            <mat-form-field class="full-width" appearance="outline">
+                <mat-label>{{sampleLabel}}</mat-label>
+                <input  matInput  value=""   placeholder={{sampleLabel}}  name="sample"  
+                required minlength = {{sampleMinLength}} maxlength = {{sampleMaxLength}}  
+                formControlName="sample" pattern="[0-9]*">
+                    <mat-error>
+                        {{errorMessage("sample","")}}
+                        </mat-error>
+            </mat-form-field>
+
+            <!-- RPM -->
+            <mat-form-field class="full-width" appearance="outline">
+                <mat-label>{{rpmLabel}}</mat-label>
+                <input  matInput  value=""   placeholder={{rpmLabel}}  name="rpm"  
+                required minlength = {{rpmMinLength}} maxlength = {{rpmMaxLength}} 
+                 formControlName="rpm" pattern="[0-9]*">
+                    <mat-error>
+                        {{errorMessage("rpm","")}}
+                        </mat-error>
+            </mat-form-field>
+            
+            <!--  Purpose -->
+            <mat-form-field class="full-width" appearance="outline">
+                <mat-label>{{purposeLabel}}</mat-label>
+                <input  matInput  value=""   placeholder={{purposeLabel}}  name="purpose"  
+                required minlength = {{purposeMinLength}} maxlength = {{purposeMaxLength}} 
+                 formControlName="purpose" pattern="[0-9]*">
+                    <mat-error>
+                        {{errorMessage("purpose","")}}
+                        </mat-error>
+            </mat-form-field>
+
+            <!--Duration-->
+            <mat-form-field class="full-width" appearance="outline">
+                <mat-label>{{durationLabel}}</mat-label>
+                <input  matInput  value=""   placeholder={{durationLabel}}  name="duration"  
+                required minlength = {{durationMinLength}} maxlength = {{durationMaxLength}}  
+                formControlName="duration" pattern="[0-9]*">
+                    <mat-error>
+                        {{errorMessage("duration","")}}
+                        </mat-error>
+            </mat-form-field>
+
+            <!--Employee Code-->
+            <mat-form-field class="full-width" appearance="outline">
+                <mat-label>{{employeeCodeLabel}}</mat-label>
+                <input  matInput  value=""   placeholder={{employeeCodeLabel}}  name="empCode"  
+                required minlength = {{employeeCodeMinLength}} maxlength = {{employeeCodeMaxLength}}  
+                formControlName="empCode" pattern="[a-zA-Z0-9 ]*">
+                    <mat-error>
+                        {{errorMessage("empCode","")}}
+                        </mat-error>
+            </mat-form-field>
+
+            <mat-card-actions class="stirrer1CrndTable">
+                <button mat-raised-button (click)="save()" color="primary">
+                    {{submitLabel}}
+                </button>
+              </mat-card-actions>
+        </form>
+    </mat-card-content>
+ </mat-card>
+ 
