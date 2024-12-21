@@ -1,0 +1,132 @@
+<mat-toolbar>
+    <span>{{autoclave1HeadingLabel}}
+        <button mat-raised-button matTooltip={{toolTipMsg}}>{{helpLabel}}</button>
+    </span>
+  </mat-toolbar>
+ 
+  <mat-card class="my-card">
+    <mat-card-content>
+       <form class="autoclave1-form" [formGroup]="autoclave1Form" (ngSubmit)="save()" novalidate>
+
+            <!--Date-->
+            <mat-form-field class="full-width" appearance="outline">
+                <mat-label>{{dateLabel}}</mat-label>
+                    <input matInput [matDatepicker]="picker" name="date" placeholder={{dateLabel}}  
+                    required minlength = {{dateMinLength}} maxlength = {{dateMaxLength}}  
+                    formControlName="date" pattern="[0-9]*">
+                        <mat-hint>{{dateFormatLabel}}</mat-hint>
+                        <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+                        <mat-datepicker #picker></mat-datepicker>
+                        <mat-error >
+                            {{errorMessage("date","")}}
+                        </mat-error>
+            </mat-form-field>
+
+            <!--Time-->
+            <mat-form-field class="full-width" appearance="outline">
+                <mat-label>{{timeLabel}}</mat-label>
+                <input  matInput  value=""   placeholder={{timeLabel}}  name="time"  
+                required minlength = {{timeMinLength}} maxlength = {{timeMaxLength}}
+                 formControlName="time" pattern="[0-9]*">
+                    <mat-error >
+                        {{errorMessage("time","")}}
+                        </mat-error>
+            </mat-form-field>
+
+            <!--Water Level-->
+            <mat-form-field class="full-width" appearance="outline">
+                <mat-label>{{waterLevelLabel}}</mat-label>
+                <input  matInput  value=""   placeholder={{waterLevelLabel}}  name="waterLevel"  
+                required minlength = {{waterLevelMinLength}} maxlength = {{waterLevelMaxLength}}  
+                formControlName="waterLevel" pattern="[0-9]*">
+                    <mat-error>
+                        {{errorMessage("waterLevel","")}}
+                        </mat-error>
+            </mat-form-field>
+
+            <!-- Load -->
+            <mat-form-field class="full-width" appearance="outline">
+                <mat-label>{{loadLabel}}</mat-label>
+                <input  matInput  value=""   placeholder={{loadLabel}}  name="load"  
+                required minlength = {{loadMinLength}} maxlength = {{loadMaxLength}} 
+                 formControlName="load" pattern="[0-9]*">
+                    <mat-error>
+                        {{errorMessage("load","")}}
+                        </mat-error>
+            </mat-form-field>
+            
+            <!--  Start Time / Initial Temperature -->
+            <mat-form-field class="full-width" appearance="outline">
+                <mat-label>{{startTimeOrInitialTemperatureLabel}}</mat-label>
+                <input  matInput  value=""   placeholder={{startTimeOrInitialTemperatureLabel}}  name="startTimeOrInitialTemperature"  
+                required minlength = {{startTimeOrInitialTemperatureMinLength}} maxlength = {{startTimeOrInitialTemperatureMaxLength}} 
+                 formControlName="startTimeOrInitialTemperature" pattern="[0-9]*">
+                    <mat-error>
+                        {{errorMessage("startTimeOrInitialTemperature","")}}
+                        </mat-error>
+            </mat-form-field>
+
+            <!--121 Celsius Reach Time -->
+            <mat-form-field class="full-width" appearance="outline">
+                <mat-label>{{hundredAndTwentyOneCelsiusReachTimeLabel}}</mat-label>
+                <input  matInput  value=""   placeholder={{durationLabel}}  name="duration"  
+                required minlength = {{durationMinLength}} maxlength = {{durationMaxLength}}  
+                formControlName="duration" pattern="[0-9]*">
+                    <mat-error>
+                        {{errorMessage("duration","")}}
+                        </mat-error>
+            </mat-form-field>
+
+            <!-- Duration -->
+            <mat-form-field class="full-width" appearance="outline">
+                <mat-label>{{durationLabel}}</mat-label>
+                <input  matInput  value=""   placeholder={{durationLabel}}  name="duration"  
+                required minlength = {{durationMinLength}} maxlength = {{durationMaxLength}}  
+                formControlName="duration" pattern="[0-9]*">
+                    <mat-error>
+                        {{errorMessage("duration","")}}
+                        </mat-error>
+            </mat-form-field>
+            
+            <!-- End Time -->
+            <mat-form-field class="full-width" appearance="outline">
+                <mat-label>{{endTimeLabel}}</mat-label>
+                <input  matInput  value=""   placeholder={{endTimeLabel}}  name="endTime"  
+                required minlength = {{endTimeMinLength}} maxlength = {{endTimeMaxLength}}  
+                formControlName="endTime" pattern="[0-9]*">
+                    <mat-error>
+                        {{errorMessage("endTime","")}}
+                        </mat-error>
+            </mat-form-field>
+
+            <!-- Unload Time -->
+            <mat-form-field class="full-width" appearance="outline">
+                <mat-label>{{unloadTimeLabel}}</mat-label>
+                <input  matInput  value=""   placeholder={{unloadTimeLabel}}  name="unloadTime"  
+                required minlength = {{unloadTimeMinLength}} maxlength = {{unloadTimeMaxLength}}  
+                formControlName="unloadTime" pattern="[0-9]*">
+                    <mat-error>
+                        {{errorMessage("unloadTime","")}}
+                        </mat-error>
+            </mat-form-field>
+
+            <!--Employee Code-->
+            <mat-form-field class="full-width" appearance="outline">
+                <mat-label>{{employeeCodeLabel}}</mat-label>
+                <input  matInput  value=""   placeholder={{employeeCodeLabel}}  name="empCode"  
+                required minlength = {{employeeCodeMinLength}} maxlength = {{employeeCodeMaxLength}}  
+                formControlName="empCode" pattern="[a-zA-Z0-9 ]*">
+                    <mat-error>
+                        {{errorMessage("empCode","")}}
+                        </mat-error>
+            </mat-form-field>
+
+            <mat-card-actions class="autoclave1Table">
+                <button mat-raised-button (click)="save()" color="primary">
+                    {{submitLabel}}
+                </button>
+              </mat-card-actions>
+        </form>
+    </mat-card-content>
+ </mat-card>
+ 

@@ -1,0 +1,208 @@
+<mat-toolbar>
+    <span>{{weighingBalance1BpHeadingLabel}}
+        <button mat-raised-button matTooltip={{toolTipMsg}}>{{helpLabel}}</button>
+    </span>
+  </mat-toolbar>
+ 
+  <mat-card class="my-card">
+    
+    <mat-card-content>
+       <form class="dailyWaterAnalysisTds-form" [formGroup]="dailyWaterAnalysisTdsForm" (ngSubmit)="save()" novalidate>
+
+            <!--Date-->
+            <mat-form-field class="full-width" appearance="outline">
+                <mat-label>{{dateLabel}}</mat-label>
+                    <input matInput [matDatepicker]="picker" name="date" placeholder={{dateLabel}}  
+                    required minlength = {{dateMinLength}} maxlength = {{dateMaxLength}}  
+                    formControlName="date" pattern="[0-9]*">
+                        <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+                        <mat-datepicker #picker></mat-datepicker>
+                        <mat-error >
+                            {{errorMessage("date","")}}
+                        </mat-error>
+            </mat-form-field>
+
+
+            
+            <!--Employee Code-->
+            <mat-form-field class="full-width" appearance="outline">
+                <mat-label>{{employeeCodeLabel}}</mat-label>
+                <input  matInput  value=""   placeholder={{employeeCodeLabel}}  name="empCode"  
+                required minlength = {{employeeCodeMinLength}} maxlength = {{employeeCodeMaxLength}}  formControlName="empCode" pattern="[a-zA-Z0-9 ]*">
+                    <mat-error>
+                        {{errorMessage("empCode","")}}
+                        </mat-error>
+            </mat-form-field>
+
+        </form>
+    </mat-card-content>
+
+    <mat-card-content>
+       <form class="weighingBalance1Bp-form" [formGroup]="dailyWaterAnalysisTdsForm" (ngSubmit)="save()" novalidate>
+
+
+            <!--Collection Tank Zeroth-->
+            <mat-form-field class="full-width" appearance="outline">
+                <mat-label>{{collectionTankZerothLabel}}</mat-label>
+                <input  matInput  value=""   placeholder={{collectionTankZerothLabel}}  name="collectionTankZeroth"  
+                required minlength = {{collectionTankZerothMinLength}} maxlength = {{collectionTankZerothMaxLength}} 
+                formControlName="collectionTankZeroth" pattern="[0-9]*">
+                    <mat-error >
+                        {{errorMessage("collectionTankZeroth","")}}
+                        </mat-error>
+            </mat-form-field>
+
+            <!--Collection Tank First-->
+            <mat-form-field class="full-width" appearance="outline">
+                <mat-label>{{collectionTankFirstLabel}}</mat-label>
+                <input  matInput  value=""   placeholder={{collectionTankFirstLabel}}  name="collectionTankFirst"  
+                required minlength = {{collectionTankFirstMinLength}} maxlength = {{collectionTankFirstMaxLength}}
+                 formControlName="collectionTankFirst" pattern="[0-9]*">
+                    <mat-error >
+                        {{errorMessage("collectionTankFirst","")}}
+                        </mat-error>
+            </mat-form-field>
+
+            <!--Collection Tank Second-->
+            <mat-form-field class="full-width" appearance="outline">
+                <mat-label>{{collectionTankSecondLabel}}</mat-label>
+                <input  matInput  value=""   placeholder={{collectionTankSecondLabel}}  name="collectionTankSecond"  
+                required minlength = {{collectionTankSecondMinLength}} maxlength = {{collectionTankSecondMaxLength}}
+                 formControlName="collectionTankSecond" pattern="[0-9]*">
+                    <mat-error >
+                        {{errorMessage("collectionTankSecond","")}}
+                        </mat-error>
+            </mat-form-field>
+
+            
+        </form>
+    </mat-card-content>
+
+    <mat-card-content>
+        <form class="dailyWaterAnalysisTds-form" [formGroup]="dailyWaterAnalysisTdsForm" (ngSubmit)="save()" novalidate>
+ 
+ 
+             <!--Aeration Tank Zeroth-->
+             <mat-form-field class="full-width" appearance="outline">
+                 <mat-label>{{aerationTankZerothLabel}}</mat-label>
+                 <input  matInput  value=""   placeholder={{aerationTankZerothLabel}}  name="aerationZeroth"  
+                 required minlength = {{aerationTankZerothMinLength}} maxlength = {{aerationTankZerothMaxLength}} 
+                 formControlName="aerationTankZeroth" pattern="[0-9]*">
+                     <mat-error >
+                         {{errorMessage("aerationTankZeroth","")}}
+                         </mat-error>
+             </mat-form-field>
+ 
+             <!--Aeration Tank First-->
+             <mat-form-field class="full-width" appearance="outline">
+                 <mat-label>{{aerationTankFirstLabel}}</mat-label>
+                 <input  matInput  value=""   placeholder={{aerationTankFirstLabel}}  name="aerationTankFirst"  
+                 required minlength = {{aerationTankFirstMinLength}} maxlength = {{aerationTankFirstMaxLength}}
+                  formControlName="aerationTankFirst" pattern="[0-9]*">
+                     <mat-error >
+                         {{errorMessage("aerationTankFirst","")}}
+                         </mat-error>
+             </mat-form-field>
+ 
+             <!--Aeration Tank Second-->
+             <mat-form-field class="full-width" appearance="outline">
+                 <mat-label>{{aerationTankSecondLabel}}</mat-label>
+                 <input  matInput  value=""   placeholder={{aerationTankSecondLabel}}  name="aerationTankSecond"  
+                 required minlength = {{aerationTankSecondMinLength}} maxlength = {{aerationTankSecondMaxLength}}
+                  formControlName="aerationTankSecond" pattern="[0-9]*">
+                     <mat-error >
+                         {{errorMessage("aerationTankSecond","")}}
+                         </mat-error>
+             </mat-form-field>
+         </form>
+     </mat-card-content>
+
+     
+     <mat-card-content>
+        <form class="dailyWaterAnalysisTds-form" [formGroup]="dailyWaterAnalysisTdsForm" (ngSubmit)="save()" novalidate>
+ 
+ 
+             <!--Digester Tank Zeroth-->
+             <mat-form-field class="full-width" appearance="outline">
+                 <mat-label>{{digesterTankZerothLabel}}</mat-label>
+                 <input  matInput  value=""   placeholder={{digesterTankZerothLabel}}  name="digesterTankZeroth"  
+                 required minlength = {{digesterTankZerothMinLength}} maxlength = {{digesterTankZerothMaxLength}} 
+                 formControlName="collectionTankZeroth" pattern="[0-9]*">
+                     <mat-error >
+                         {{errorMessage("digesterTankZeroth","")}}
+                         </mat-error>
+             </mat-form-field>
+ 
+             <!--Digester Tank First-->
+             <mat-form-field class="full-width" appearance="outline">
+                 <mat-label>{{digesterTankFirstLabel}}</mat-label>
+                 <input  matInput  value=""   placeholder={{digesterTankFirstLabel}}  name="digesterTankFirst"  
+                 required minlength = {{digesterTankFirstMinLength}} maxlength = {{digesterTankFirstMaxLength}}
+                  formControlName="digesterTankFirst" pattern="[0-9]*">
+                     <mat-error >
+                         {{errorMessage("digesterTankFirst","")}}
+                         </mat-error>
+             </mat-form-field>
+ 
+             <!--Digester Tank Second-->
+             <mat-form-field class="full-width" appearance="outline">
+                 <mat-label>{{digesterTankSecondLabel}}</mat-label>
+                 <input  matInput  value=""   placeholder={{digesterTankSecondLabel}}  name="digesterTankSecond"  
+                 required minlength = {{digesterTankSecondMinLength}} maxlength = {{digesterTankSecondMaxLength}}
+                  formControlName="digesterTankSecond" pattern="[0-9]*">
+                     <mat-error >
+                         {{errorMessage("digesterTankSecond","")}}
+                         </mat-error>
+             </mat-form-field>
+         </form>
+     </mat-card-content>
+
+     <mat-card-content>
+        <form class="dailyWaterAnalysisTds-form" [formGroup]="dailyWaterAnalysisTdsForm" (ngSubmit)="save()" novalidate>
+ 
+ 
+             <!--Final Tank Zeroth-->
+             <mat-form-field class="full-width" appearance="outline">
+                 <mat-label>{{finalTankZerothLabel}}</mat-label>
+                 <input  matInput  value=""   placeholder={{finalTankZerothLabel}}  name="finalTankZeroth"  
+                 required minlength = {{finalTankZerothMinLength}} maxlength = {{finalTankZerothMaxLength}} 
+                 formControlName="finalTankZeroth" pattern="[0-9]*">
+                     <mat-error >
+                         {{errorMessage("finalTankZeroth","")}}
+                         </mat-error>
+             </mat-form-field>
+ 
+             <!--Final Tank First-->
+             <mat-form-field class="full-width" appearance="outline">
+                 <mat-label>{{finalTankFirstLabel}}</mat-label>
+                 <input  matInput  value=""   placeholder={{finalTankFirstLabel}}  name="finalTankFirst"  
+                 required minlength = {{finalTankFirstMinLength}} maxlength = {{finalTankFirstMaxLength}}
+                  formControlName="finalTankFirst" pattern="[0-9]*">
+                     <mat-error >
+                         {{errorMessage("finalTankFirst","")}}
+                         </mat-error>
+             </mat-form-field>
+ 
+             <!--Digester Tank Second-->
+             <mat-form-field class="full-width" appearance="outline">
+                 <mat-label>{{finalTankSecondLabel}}</mat-label>
+                 <input  matInput  value=""   placeholder={{finalTankSecondLabel}}  name="finalTankSecond"  
+                 required minlength = {{finalTankSecondMinLength}} maxlength = {{finalTankSecondMaxLength}}
+                  formControlName="finalTankSecond" pattern="[0-9]*">
+                     <mat-error >
+                         {{errorMessage("finalTankSecond","")}}
+                         </mat-error>
+             </mat-form-field>
+         </form>
+     </mat-card-content>
+ 
+     <mat-card-content>
+        <mat-card-actions class="dailyWaterAnalysisTdsTable">
+            <button mat-raised-button (click)="save()" color="primary">
+                {{submitLabel}}
+            </button>
+          </mat-card-actions>
+
+    </mat-card-content>
+ </mat-card>
+ 

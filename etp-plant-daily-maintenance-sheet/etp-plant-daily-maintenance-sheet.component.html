@@ -1,0 +1,82 @@
+<mat-toolbar>
+    <span>{{etpPlantDailyMaintenanceSheetHeadingLabel}}
+        <button mat-raised-button matTooltip={{toolTipMsg}}>{{helpLabel}}</button>
+    </span>
+  </mat-toolbar>
+ 
+  <mat-card class="my-card">
+    <form class="etpPlantDailyMaintenanceSheet-form" [formGroup]="etpPlantDailyMaintenanceSheetForm"
+     (ngSubmit)="save()" novalidate>
+    
+    <mat-card-content>
+
+            <!--Date-->
+            <mat-form-field class="full-width" appearance="outline">
+                <mat-label>{{dateLabel}}</mat-label>
+                    <input matInput [matDatepicker]="picker" name="date" placeholder={{dateLabel}}  
+                    required minlength = {{dateMinLength}} maxlength = {{dateMaxLength}}  
+                    formControlName="date" pattern="[0-9]*">
+                        <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+                        <mat-datepicker #picker></mat-datepicker>
+                        <mat-error >
+                            {{errorMessage("date","")}}
+                        </mat-error>
+            </mat-form-field>
+            
+            <!--Collection Tank Ph-->
+             <mat-form-field class="full-width" appearance="outline">
+                <mat-label>{{collectionTankPhLabel}}</mat-label>
+                <input  matInput  value=""   placeholder={{collectionTankPhLabel}}  name="collectionTankPh"  
+                required minlength = {{collectionTankPhMinLength}} maxlength = {{collectionTankPhMaxLength}}  
+                formControlName="collectionTankPh" pattern="[a-zA-Z0-9 ]*">
+                    <mat-error>
+                        {{errorMessage("collectionTankPh","")}}
+                        </mat-error>
+            </mat-form-field>
+
+             <!--Total Volume In Final Tank-->
+             <mat-form-field class="full-width" appearance="outline">
+                <mat-label>{{collectionTankPhLabel}}</mat-label>
+                <input  matInput  value=""   placeholder={{collectionTankPhLabel}}  name="collectionTankPh"  
+                required minlength = {{collectionTankPhMinLength}} maxlength = {{collectionTankPhMaxLength}}  
+                formControlName="collectionTankPh" pattern="[a-zA-Z0-9 ]*">
+                    <mat-error>
+                        {{errorMessage("collectionTankPh","")}}
+                        </mat-error>
+            </mat-form-field>
+
+             <!--Employee Code-->
+             <mat-form-field class="full-width" appearance="outline">
+                <mat-label>{{employeeCodeLabel}}</mat-label>
+                <input  matInput  value=""   placeholder={{employeeCodeLabel}}  name="empCode"  
+                required minlength = {{employeeCodeMinLength}} maxlength = {{employeeCodeMaxLength}}  
+                formControlName="empCode" pattern="[a-zA-Z0-9 ]*">
+                    <mat-error>
+                        {{errorMessage("empCode","")}}
+                        </mat-error>
+            </mat-form-field>
+             <!--Verified Employee Code-->
+             <mat-form-field class="full-width" appearance="outline">
+                <mat-label>{{verifiedEmployeeCodeLabel}}</mat-label>
+                <input  matInput  value=""   placeholder={{verifiedEmployeeCodeLabel}}  name="verifiedEmployeeCode"  
+                required minlength = {{verifiedEmployeeCodeMinLength}} maxlength = {{verifiedEmployeeCodeMaxLength}}  
+                formControlName="verifiedEmployeeCode" pattern="[a-zA-Z0-9 ]*">
+                    <mat-error>
+                        {{errorMessage("verifiedEmpCode","")}}
+                    </mat-error>
+            </mat-form-field>
+
+
+    </mat-card-content>
+
+        </form>
+     <mat-card-content>
+        <mat-card-actions class="etpBatchWorkSheetTable">
+            <button mat-raised-button (click)="save()" color="primary">
+                {{submitLabel}}
+            </button>
+          </mat-card-actions>
+
+    </mat-card-content>
+ </mat-card>
+ 

@@ -1,0 +1,210 @@
+<mat-toolbar>
+    <span>{{hplcQcqaHeadingLabel}}
+        <button mat-raised-button matTooltip={{toolTipMsg}}>{{helpLabel}}</button>
+    </span>
+  </mat-toolbar>
+ 
+  <mat-card class="my-card">
+    <mat-card-content>
+       <form class="hplcQcqa-form" [formGroup]="hplcQcqaForm" 
+       (ngSubmit)="save()" novalidate>
+
+            <!--Date-->
+            <mat-form-field class="full-width" appearance="outline">
+                <mat-label>{{dateLabel}}</mat-label>
+                    <input matInput [matDatepicker]="picker" name="date" placeholder={{dateLabel}}  
+                    required minlength = {{dateMinLength}} maxlength = {{dateMaxLength}} 
+                    formControlName="date" pattern="[0-9]*">
+                        <mat-hint>{{dateFormatLabel}}</mat-hint>
+                        <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+                        <mat-datepicker #picker></mat-datepicker>
+                        <mat-error >
+                            {{errorMessage("date","")}}
+                        </mat-error>
+            </mat-form-field>
+
+            <!--Time-->
+            <mat-form-field class="full-width" appearance="outline">
+                <mat-label>{{timeLabel}}</mat-label>
+                <input  matInput  value=""   placeholder={{timeLabel}}  name="time"  
+                required minlength = {{timeMinLength}} maxlength = {{timeMaxLength}} 
+                formControlName="time" pattern="[0-9]*">
+                    <mat-error >
+                        {{errorMessage("time","")}}
+                        </mat-error>
+            </mat-form-field>
+
+            <!--Buffer-->
+            <mat-form-field class="full-width" appearance="outline">
+                <mat-label>{{bufferLabel}}</mat-label>
+                <input  matInput  value=""   placeholder={{bufferLabel}}  name="buffer"  
+                required minlength = {{bufferMinLength}} maxlength = {{bufferMaxLength}}  
+                formControlName="buffer" pattern="[0-9]*">
+                    <mat-error>
+                        {{errorMessage("buffer","")}}
+                        </mat-error>
+            </mat-form-field>
+
+            <!-- Quantity -->
+            <mat-form-field class="full-width" appearance="outline">
+                <mat-label>{{quantityLabel}}</mat-label>
+                <input  matInput  value=""   placeholder={{quantityLabel}}  name="quantity"  
+                required minlength = {{quantityMinLength}} maxlength = {{quantityMaxLength}}
+                formControlName="quantity" pattern="[0-9]*">
+                    <mat-error>
+                        {{errorMessage("quantity","")}}
+                        </mat-error>
+            </mat-form-field>
+
+            <!-- Degas -->
+            <mat-form-field class="full-width" appearance="outline">
+                <mat-label>{{degasLabel}}</mat-label>
+                <input  matInput  value=""   placeholder={{degasLabel}}  name="degas"  
+                required minlength = {{degasMinLength}} maxlength = {{degasMaxLength}}
+                formControlName="degas" pattern="[0-9]*">
+                    <mat-error>
+                        {{errorMessage("degas","")}}
+                        </mat-error>
+            </mat-form-field>
+
+            <!-- Start Time -->
+            <mat-form-field class="full-width" appearance="outline">
+                <mat-label>{{startTimeLabel}}</mat-label>
+                <input  matInput  value=""   placeholder={{startTimeLabel}}  name="startTime"  
+                required minlength = {{startTimeMinLength}} maxlength = {{startTimeMaxLength}}
+                formControlName="startTime" pattern="[0-9]*">
+                    <mat-error>
+                        {{errorMessage("startTime","")}}
+                        </mat-error>
+            </mat-form-field>
+
+            <!-- Column Temperature -->
+            <mat-form-field class="full-width" appearance="outline">
+                <mat-label>{{columnTemperatureLabel}}</mat-label>
+                <input  matInput  value=""   placeholder={{columnTemperatureLabel}}  name="columnTemperature"  
+                required minlength = {{columnTemperatureMinLength}} maxlength = {{columnTemperatureMaxLength}}
+                formControlName="columnTemperature" pattern="[0-9]*">
+                    <mat-error>
+                        {{errorMessage("columnTemperature","")}}
+                        </mat-error>
+            </mat-form-field>
+
+            <!-- Flow Rate -->
+            <mat-form-field class="full-width" appearance="outline">
+                <mat-label>{{flowRateLabel}}</mat-label>
+                <input  matInput  value=""   placeholder={{flowRateLabel}}  name="flowRate"  
+                required minlength = {{flowRateMinLength}} maxlength = {{flowRateMaxLength}}
+                formControlName="flowRate" pattern="[0-9]*">
+                    <mat-error>
+                        {{errorMessage("flowRate","")}}
+                        </mat-error>
+            </mat-form-field>
+
+            <!-- MPa -->
+            <mat-form-field class="full-width" appearance="outline">
+                <mat-label>{{mpaLabel}}</mat-label>
+                <input  matInput  value=""   placeholder={{mpaLabel}}  name="mpa"  
+                required minlength = {{mpaMinLength}} maxlength = {{mpaMaxLength}}
+                formControlName="mpa" pattern="[0-9]*">
+                    <mat-error>
+                        {{errorMessage("mpa","")}}
+                        </mat-error>
+            </mat-form-field>
+            
+            <!-- Purge On Time -->
+            <mat-form-field class="full-width" appearance="outline">
+                <mat-label>{{purgeOnTimeLabel}}</mat-label>
+                <input  matInput  value=""   placeholder={{purgeOnTimeLabel}}  name="purgeOnTime"  
+                required minlength = {{purgeOnTimeMinLength}} maxlength = {{purgeOnTimeMaxLength}}
+                formControlName="purgeOnTime" pattern="[0-9]*">
+                    <mat-error>
+                        {{errorMessage("purgeOnTime","")}}
+                        </mat-error>
+            </mat-form-field>
+            
+            <!-- Purge Off Time -->
+            <mat-form-field class="full-width" appearance="outline">
+                <mat-label>{{purgeOffTimeLabel}}</mat-label>
+                <input  matInput  value=""   placeholder={{purgeOffTimeLabel}}  name="purgeOffTime"  
+                required minlength = {{purgeOffTimeMinLength}} maxlength = {{purgeOffTimeMaxLength}}
+                formControlName="purgeOnTime" pattern="[0-9]*">
+                    <mat-error>
+                        {{errorMessage("purgeOnTime","")}}
+                        </mat-error>
+            </mat-form-field>
+
+            <!-- Sample Id -->
+            <mat-form-field class="full-width" appearance="outline">
+                <mat-label>{{sampleIdLabel}}</mat-label>
+                <input  matInput  value=""   placeholder={{sampleIdLabel}}  name="sampleId"  
+                required minlength = {{sampleIdMinLength}} maxlength = {{sampleIdMaxLength}}
+                formControlName="sampleId" pattern="[0-9]*">
+                    <mat-error>
+                        {{errorMessage("sampleId","")}}
+                        </mat-error>
+            </mat-form-field>
+            
+            <!-- No Of Sample -->
+            <mat-form-field class="full-width" appearance="outline">
+                <mat-label>{{noOfSampleLabel}}</mat-label>
+                <input  matInput  value=""   placeholder={{noOfSampleLabel}}  name="noOfSample"  
+                required minlength = {{noOfSampleMinLength}} maxlength = {{noOfSampleMaxLength}}
+                formControlName="noOfSample" pattern="[0-9]*">
+                    <mat-error>
+                        {{errorMessage("noOfSample","")}}
+                        </mat-error>
+            </mat-form-field>
+            
+            <!--End Time -->
+            <mat-form-field class="full-width" appearance="outline">
+                <mat-label>{{endTimeLabel}}</mat-label>
+                <input  matInput  value=""   placeholder={{endTimeLabel}}  name="endTime"  
+                required minlength = {{endTimeMinLength}} maxlength = {{endTimeMaxLength}}
+                formControlName="endTime" pattern="[0-9]*">
+                    <mat-error>
+                        {{errorMessage("endTime","")}}
+                        </mat-error>
+            </mat-form-field>
+            
+            <!--Running Status -->
+            <mat-form-field class="full-width" appearance="outline">
+                <mat-label>{{runningStatusLabel}}</mat-label>
+                <input  matInput  value=""   placeholder={{runningStatusLabel}}  name="runningStatus"  
+                required minlength = {{runningStatusMinLength}} maxlength = {{runningStatusMaxLength}}
+                formControlName="runningStatus" pattern="[0-9]*">
+                    <mat-error>
+                        {{errorMessage("runningStatus","")}}
+                        </mat-error>
+            </mat-form-field>
+
+            <!--Shutdown Status -->
+            <mat-form-field class="full-width" appearance="outline">
+                <mat-label>{{shutdownStatusLabel}}</mat-label>
+                <input  matInput  value=""   placeholder={{shutdownStatusLabel}}  name="shutdownStatus"  
+                required minlength = {{shutdownStatusMinLength}} maxlength = {{shutdownStatusMaxLength}}
+                formControlName="shutdownStatus" pattern="[0-9]*">
+                    <mat-error>
+                        {{errorMessage("shutdownStatus","")}}
+                        </mat-error>
+            </mat-form-field>
+
+            <!--Employee Code-->
+            <mat-form-field class="full-width" appearance="outline">
+                <mat-label>{{employeeCodeLabel}}</mat-label>
+                <input  matInput  value=""   placeholder={{employeeCodeLabel}}  name="empCode"  
+                required minlength = {{employeeCodeMinLength}} maxlength = {{employeeCodeMaxLength}}  
+                formControlName="empCode" pattern="[a-zA-Z0-9 ]*">
+                    <mat-error>
+                        {{errorMessage("empCode","")}}
+                        </mat-error>
+            </mat-form-field>
+
+            <mat-card-actions class="hplcQcqaQcTable">
+                <button mat-raised-button (click)="save()" color="primary">
+                    {{submitLabel}}
+                </button>
+              </mat-card-actions>
+        </form>
+    </mat-card-content>
+ </mat-card>
+ 

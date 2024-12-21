@@ -1,0 +1,154 @@
+<mat-toolbar>
+    <span>{{houseKeepingRecordHeadingLabel}}
+        <button mat-raised-button matTooltip={{toolTipMsg}}>{{helpLabel}}</button>
+    </span>
+  </mat-toolbar>
+ 
+  <mat-card class="my-card">
+    <mat-card-content>
+       <form class="houseKeepingRecord-form" [formGroup]="houseKeepingRecordForm" 
+       (ngSubmit)="save()" novalidate>
+
+            <!--Date-->
+            <mat-form-field class="full-width" appearance="outline">
+                <mat-label>{{dateLabel}}</mat-label>
+                    <input matInput [matDatepicker]="picker" name="date" placeholder={{dateLabel}}  
+                    required minlength = {{dateMinLength}} maxlength = {{dateMaxLength}} 
+                    formControlName="date" pattern="[0-9]*">
+                        <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+                        <mat-datepicker #picker></mat-datepicker>
+                        <mat-error >
+                            {{errorMessage("date","")}}
+                        </mat-error>
+            </mat-form-field>
+
+            <!-- Ground Floor-->
+            <mat-form-field class="full-width" appearance="outline">
+                <mat-label>{{groundFloorLabel}}</mat-label>
+                <input  matInput  value=""   placeholder={{groundFloorLabel}}  name="groundFloor"  
+                required minlength = {{groundFloorMinLength}} maxlength = {{groundFloorMaxLength}} 
+                formControlName="groundFloor" pattern="[0-9]*">
+                    <mat-error >
+                        {{errorMessage("groundFloor","")}}
+                        </mat-error>
+            </mat-form-field>
+
+            <!--Ground Floor Rooms -->
+            <mat-form-field class="full-width" appearance="outline">
+                <mat-label>{{groundFloorRoomsLabel}}</mat-label>
+                <input  matInput  value=""   placeholder={{groundFloorRoomsLabel}}  name="groundFloorRooms"  
+                required minlength = {{groundFloorRoomsMinLength}} maxlength = {{groundFloorRoomsMaxLength}}  
+                formControlName="groundFloorRooms" pattern="[0-9]*">
+                    <mat-error>
+                        {{errorMessage("groundFloorRooms","")}}
+                        </mat-error>
+            </mat-form-field>
+
+            <!-- Reception And Canteen -->
+            <mat-form-field class="full-width" appearance="outline">
+                <mat-label>{{receptionAndCanteenLabel}}</mat-label>
+                <input  matInput  value=""   placeholder={{receptionAndCanteenLabel}}  name="receptionAndCanteen"  
+                required minlength = {{receptionAndCanteenMinLength}} maxlength = {{receptionAndCanteenMaxLength}}
+                formControlName="receptionAndCanteen" pattern="[0-9]*">
+                    <mat-error>
+                        {{errorMessage("receptionAndCanteen","")}}
+                        </mat-error>
+            </mat-form-field>
+
+            <!-- Utilities Area -->
+            <mat-form-field class="full-width" appearance="outline">
+                <mat-label>{{utilitiesAreaLabel}}</mat-label>
+                <input  matInput  value=""   placeholder={{utilitiesAreaLabel}}  name="utilitiesArea"  
+                required minlength = {{utilitiesAreaMinLength}} maxlength = {{utilitiesAreaMaxLength}}
+                formControlName="utilitiesArea" pattern="[0-9]*">
+                    <mat-error>
+                        {{errorMessage("utilitiesArea","")}}
+                        </mat-error>
+            </mat-form-field>
+
+            <!-- Production Area -->
+            <mat-form-field class="full-width" appearance="outline">
+                <mat-label>{{productionAreaLabel}}</mat-label>
+                <input  matInput  value=""   placeholder={{productionAreaLabel}}  name="productionArea"  
+                required minlength = {{productionAreaMinLength}} maxlength = {{productionAreaMaxLength}}
+                formControlName="productionArea" pattern="[0-9]*">
+                    <mat-error>
+                        {{errorMessage("productionArea","")}}
+                        </mat-error>
+            </mat-form-field>
+
+            <!-- First Floor Labs -->
+            <mat-form-field class="full-width" appearance="outline">
+                <mat-label>{{firstFloorLabsLabel}}</mat-label>
+                <input  matInput  value=""   placeholder={{firstFloorLabsLabel}}  name="firstFloorLabs"  
+                required minlength = {{firstFloorLabsMinLength}} maxlength = {{firstFloorLabsMaxLength}}
+                formControlName="firstFloorLabs" pattern="[0-9]*">
+                    <mat-error>
+                        {{errorMessage("firstFloorLabs","")}}
+                        </mat-error>
+            </mat-form-field>
+            
+            <!-- Staircase -->
+            <mat-form-field class="full-width" appearance="outline">
+                <mat-label>{{staircaseLabel}}</mat-label>
+                <input  matInput  value=""   placeholder={{staircaseLabel}}  name="staircase"  
+                required minlength = {{staircaseMinLength}} maxlength = {{staircaseMaxLength}}
+                formControlName="staircase" pattern="[0-9]*">
+                    <mat-error>
+                        {{errorMessage("staircase","")}}
+                        </mat-error>
+            </mat-form-field>
+
+            <!-- Second Floor Room -->
+            <mat-form-field class="full-width" appearance="outline">
+                <mat-label>{{secondFloorRoomLabel}}</mat-label>
+                <input  matInput  value=""   placeholder={{secondFloorRoomLabel}}  name="secondFloorRoom"  
+                required minlength = {{secondFloorRoomMinLength}} maxlength = {{secondFloorRoomMaxLength}}
+                formControlName="secondFloorRoom" pattern="[0-9]*">
+                    <mat-error>
+                        {{errorMessage("secondFloorRoom","")}}
+                        </mat-error>
+            </mat-form-field>
+
+            <!-- RO ETP And Power Case -->
+            <mat-form-field class="full-width" appearance="outline">
+                <mat-label>{{roEtpAndPowerCaseLabel}}</mat-label>
+                <input  matInput  value=""   placeholder={{roEtpAndPowerCaseLabel}}  name="roEtpAndPowerCase"  
+                required minlength = {{roEtpAndPowerCaseMinLength}} maxlength = {{roEtpAndPowerCaseMaxLength}}
+                formControlName="roEtpAndPowerCase" pattern="[0-9]*">
+                    <mat-error>
+                        {{errorMessage("roEtpAndPowerCase","")}}
+                        </mat-error>
+            </mat-form-field>
+            
+            <!--Cleaned By -->
+            <mat-form-field class="full-width" appearance="outline">
+                <mat-label>{{cleanedByLabel}}</mat-label>
+                <input  matInput  value=""   placeholder={{cleanedByLabel}}  name="cleanedBy"  
+                required minlength = {{cleanedByMinLength}} maxlength = {{cleanedByMaxLength}}
+                formControlName="cleanedBy" pattern="[0-9]*">
+                    <mat-error>
+                        {{errorMessage("cleanedBy","")}}
+                        </mat-error>
+            </mat-form-field>
+
+            <!--Employee Code-->
+            <mat-form-field class="full-width" appearance="outline">
+                <mat-label>{{employeeCodeLabel}}</mat-label>
+                <input  matInput  value=""   placeholder={{employeeCodeLabel}}  name="empCode"  
+                required minlength = {{employeeCodeMinLength}} maxlength = {{employeeCodeMaxLength}}  
+                formControlName="empCode" pattern="[a-zA-Z0-9 ]*">
+                    <mat-error>
+                        {{errorMessage("empCode","")}}
+                        </mat-error>
+            </mat-form-field>
+
+            <mat-card-actions class="houseKeepingRecordTable">
+                <button mat-raised-button (click)="save()" color="primary">
+                    {{submitLabel}}
+                </button>
+              </mat-card-actions>
+        </form>
+    </mat-card-content>
+ </mat-card>
+ 

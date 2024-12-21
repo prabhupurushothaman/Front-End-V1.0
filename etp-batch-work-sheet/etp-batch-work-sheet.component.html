@@ -1,0 +1,194 @@
+<mat-toolbar>
+    <span>{{etpBatchWorkSheetHeadingLabel}}
+        <button mat-raised-button matTooltip={{toolTipMsg}}>{{helpLabel}}</button>
+    </span>
+  </mat-toolbar>
+ 
+  <mat-card class="my-card">
+    <form class="etpBatchWorkSheet-form" [formGroup]="etpBatchWorkSheetForm" (ngSubmit)="save()" novalidate>
+    
+    <mat-card-content>
+
+            <!--Date-->
+            <mat-form-field class="full-width" appearance="outline">
+                <mat-label>{{dateLabel}}</mat-label>
+                    <input matInput [matDatepicker]="picker" name="date" placeholder={{dateLabel}}  
+                    required minlength = {{dateMinLength}} maxlength = {{dateMaxLength}}  
+                    formControlName="date" pattern="[0-9]*">
+                        <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+                        <mat-datepicker #picker></mat-datepicker>
+                        <mat-error >
+                            {{errorMessage("date","")}}
+                        </mat-error>
+            </mat-form-field>
+
+
+    </mat-card-content>
+
+    <!--Secondary Settler Flow Outlet-->
+    <mat-card-content>
+             <!--Secondary Settler Flow Outlet mL/min-->
+             <mat-form-field class="full-width" appearance="outline">
+                 <mat-label>{{secondarySettlerFlowOutletMlPerMminLabel}}</mat-label>
+                 <input  matInput  value=""   placeholder={{secondarySettlerFlowOutletMlPerMminLabel}} 
+                  name="secondarySettlerFlowOutletMlPerMminL"  
+                 required minlength = {{secondarySettlerFlowOutletMlPerMminMinLength}}
+                 maxlength = {{secondarySettlerFlowOutletMlPerMminMaxLength}} 
+                 formControlName="secondarySettlerFlowOutletMlPerMmin" pattern="[0-9]*">
+                     <mat-error >
+                         {{errorMessage("secondarySettlerFlowOutletMlPerMmin","")}}
+                         </mat-error>
+             </mat-form-field>
+ 
+             <!--Secondary Settler Flow Outlet Colour-->
+             <mat-form-field class="full-width" appearance="outline">
+                <mat-label>{{secondarySettlerFlowOutletColourLabel}}</mat-label>
+                <input  matInput  value=""   placeholder={{secondarySettlerFlowOutletColourLabel}} 
+                 name="secondarySettlerFlowOutletColour"  
+                required minlength = {{secondarySettlerFlowOutletColourMinLength}}
+                maxlength = {{secondarySettlerFlowOutletColourMaxLength}} 
+                formControlName="secondarySettlerFlowOutletColour" pattern="[0-9]*">
+                    <mat-error >
+                        {{errorMessage("secondarySettlerFlowOutletColour","")}}
+                        </mat-error>
+            </mat-form-field>
+
+             <!--Secondary Settler Flow Outlet Colour-->
+             <mat-form-field class="full-width" appearance="outline">
+                <mat-label>{{secondarySettlerFlowOutletPhLabel}}</mat-label>
+                <input  matInput  value=""   placeholder={{secondarySettlerFlowOutletPhLabel}} 
+                 name="secondarySettlerFlowOutletPh"  
+                required minlength = {{secondarySettlerFlowOutletPhMinLength}}
+                maxlength = {{secondarySettlerFlowOutletPhMaxLength}} 
+                formControlName="secondarySettlerFlowOutletPh" pattern="[0-9]*">
+                    <mat-error >
+                        {{errorMessage("secondarySettlerFlowOutletPh","")}}
+                        </mat-error>
+            </mat-form-field>
+        </mat-card-content>        
+    <mat-card-content>
+
+        <!--Lime Addition mL/min-->
+             <mat-form-field class="full-width" appearance="outline">
+                 <mat-label>{{limeAdditionMlPerSecLabel}}</mat-label>
+                 <input  matInput  value=""   placeholder={{limeAdditionMlPerSecLabel}} 
+                  name="limeAdditionMlPerSec"  
+                 required minlength = {{limeAdditionMlPerSecMinLength}}
+                 maxlength = {{limeAdditionMlPerSecMaxLength}} 
+                 formControlName="limeAdditionMlPerSec" pattern="[0-9]*">
+                     <mat-error >
+                         {{errorMessage("limeAdditionMlPerSec","")}}
+                         </mat-error>
+             </mat-form-field>
+ 
+             <!--Colour Removal ML/Sec-->
+             <mat-form-field class="full-width" appearance="outline">
+                <mat-label>{{colourRemovalMlPerSecLabel}}</mat-label>
+                <input  matInput  value=""   placeholder={{colourRemovalMlPerSecLabel}} 
+                 name="colourRemovalMlPerSec"  
+                required minlength = {{colourRemovalMlPerSecMinLength}}
+                maxlength = {{colourRemovalMlPerSecMaxLength}} 
+                formControlName="colourRemovalMlPerSec" pattern="[0-9]*">
+                    <mat-error >
+                        {{errorMessage("colourRemovalMlPerSec","")}}
+                        </mat-error>
+            </mat-form-field>
+
+             <!--Poly Ml/Sec-->
+             <mat-form-field class="full-width" appearance="outline">
+                <mat-label>{{polyMlPerSecLabel}}</mat-label>
+                <input  matInput  value=""   placeholder={{polyMlPerSecLabel}} 
+                 name="polyMlPerSec"  
+                required minlength = {{polyMlPerSecMinLength}}
+                maxlength = {{polyMlPerSecMaxLength}} 
+                formControlName="polyMlPerSec" pattern="[0-9]*">
+                    <mat-error >
+                        {{errorMessage("polyMlPerSec","")}}
+                        </mat-error>
+            </mat-form-field>
+        </mat-card-content>
+
+ 
+    <mat-card-content>
+            <!--Tertiary Settler Outlet Colour -->
+            <mat-form-field class="full-width" appearance="outline">
+                <mat-label>{{tertiarySettlerOutletColourLabel}}</mat-label>
+                <input  matInput  value=""   placeholder={{tertiarySettlerOutletColourLabel}} 
+                 name="tertiarySettlerOutletColour"  required minlength = {{tertiarySettlerOutletColourMinLength}}
+                 maxlength = {{tertiarySettlerOutletColourMaxLength}}  
+                formControlName="tertiarySettlerOutletColour" pattern="[a-zA-Z0-9 ]*">
+                    <mat-error>
+                        {{errorMessage("tertiarySettlerOutletColour","")}}
+                        </mat-error>
+            </mat-form-field>
+
+            <!--Tertiary Settler Outlet Ph -->
+            <mat-form-field class="full-width" appearance="outline">
+                <mat-label>{{tertiarySettlerOutletPhLabel}}</mat-label>
+                <input  matInput  value=""   placeholder={{tertiarySettlerOutletPhLabel}} 
+                name="tertiarySettlerOutletPh" required minlength = {{tertiarySettlerOutletPhMinLength}} 
+                maxlength = {{tertiarySettlerOutletPhMaxLength}}  
+                formControlName="tertiarySettlerOutletPh" pattern="[a-zA-Z0-9 ]*">
+                    <mat-error>
+                        {{errorMessage("tertiarySettlerOutletPh","")}}
+                        </mat-error>
+            </mat-form-field>
+
+            <!--Total Volume Of Processed -->
+            <mat-form-field class="full-width" appearance="outline">
+                <mat-label>{{totalVolumeOfProcessedLabel}}</mat-label>
+                <input  matInput  value=""   placeholder={{totalVolumeOfProcessedLabel}} 
+                name="totalVolumeOfProcessed" required minlength = {{totalVolumeOfProcessedMinLength}} 
+                maxlength = {{totalVolumeOfProcessedMaxLength}}  
+                formControlName="totalVolumeOfProcessed" pattern="[a-zA-Z0-9 ]*">
+                    <mat-error>
+                        {{errorMessage("totalVolumeOfProcessed","")}}
+                        </mat-error>
+            </mat-form-field>
+    </mat-card-content>
+ 
+    <mat-card-content>
+             <!--Total Volume In Final Tank-->
+             <mat-form-field class="full-width" appearance="outline">
+                 <mat-label>{{totalVolumeInFinalTankLabel}}</mat-label>
+                 <input  matInput  value=""   placeholder={{totalVolumeInFinalTankLabel}}  name="totalVolumeInFinalTank"  
+                 required minlength = {{totalVolumeInFinalTankMinLength}} maxlength = {{totalVolumeInFinalTankMaxLength}}  
+                 formControlName="totalVolumeInFinalTank" pattern="[a-zA-Z0-9 ]*">
+                     <mat-error>
+                         {{errorMessage("totalVolumeInFinalTank","")}}
+                         </mat-error>
+             </mat-form-field>
+
+             <!--Employee Code-->
+            <mat-form-field class="full-width" appearance="outline">
+                <mat-label>{{employeeCodeLabel}}</mat-label>
+                <input  matInput  value=""   placeholder={{employeeCodeLabel}}  name="empCode"  
+                required minlength = {{employeeCodeMinLength}} maxlength = {{employeeCodeMaxLength}}  
+                formControlName="empCode" pattern="[a-zA-Z0-9 ]*">
+                    <mat-error>
+                        {{errorMessage("empCode","")}}
+                        </mat-error>
+            </mat-form-field>
+
+             <!--Verified Employee Code-->
+             <mat-form-field class="full-width" appearance="outline">
+                <mat-label>{{verifiedEmployeeCodeLabel}}</mat-label>
+                <input  matInput  value=""   placeholder={{verifiedEmployeeCodeLabel}}  name="verifiedEmployeeCode"  
+                required minlength = {{verifiedEmployeeCodeMinLength}} maxlength = {{verifiedEmployeeCodeMaxLength}}  
+                formControlName="verifiedEmployeeCode" pattern="[a-zA-Z0-9 ]*">
+                    <mat-error>
+                        {{errorMessage("verifiedEmpCode","")}}
+                    </mat-error>
+            </mat-form-field>
+     </mat-card-content>
+    </form>
+     <mat-card-content>
+        <mat-card-actions class="etpBatchWorkSheetTable">
+            <button mat-raised-button (click)="save()" color="primary">
+                {{submitLabel}}
+            </button>
+          </mat-card-actions>
+
+    </mat-card-content>
+ </mat-card>
+ 
